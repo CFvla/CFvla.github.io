@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Look Where It Matters: Counterfactual Visual Interventions for High-Precision Vision-Language-Action Manipulation. Project page under double-blind review.">
+  <meta name="keywords"
+        content="VLA, Vision-Language-Action, counterfactual visual interventions, gaze, high-precision manipulation, robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Look Where It Matters: Counterfactual Visual Interventions for High-Precision VLA Manipulation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" type="image/png" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            Look Where It Matters: Counterfactual Visual Interventions for High-Precision Vision-Language-Action Manipulation
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous Authors</span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">Under double-blind review</span>
+          </div>
+
+          <div class="has-text-centered" style="margin-top: 0.75rem;">
+            <span class="is-size-5" style="font-weight: 600;">ICRA 2027</span>
+          </div>
+
+          <div class="column has-text-centered" style="margin-top: 1.5rem;">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./assets/paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#bibtex" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark"
+                   onclick="return false;" title="Code will be released after review">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision-Language-Action (VLA) models have demonstrated broad manipulation capabilities, particularly on
+            tasks such as pick-and-place. However, they remain unreliable in high-precision manipulation, where success
+            depends on subtle local geometry and accurate contact. A key limitation is dispersed visual attention, which
+            often spreads across task-relevant regions, background clutter, and distractors instead of focusing on evidence
+            critical to action generation. In contrast, humans concentrate their gaze on task-critical regions when
+            performing precise operations. Inspired by this behavior, we introduce a training framework using
+            counterfactual visual interventions to teach VLA policies where to look. Our method locally intervenes on
+            visual observations and measures the resulting change in action prediction quality, deriving spatial importance
+            directly from the policy’s action objective. These action-grounded importance signals supervise a gaze module
+            that guides the policy’s visual attention toward task-relevant regions. Since the supervision is extracted from
+            existing action demonstrations, our approach requires neither human-annotated masks or bounding boxes nor
+            pseudo-labels from external foundation models. Extensive experiments across high-precision insertion tasks
+            show that our method produces more concentrated, task-relevant action attention and consistently improves
+            success rates over standard VLA.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: white;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Teaser</h2>
+        <div class="has-text-centered"
+             style="border: 2px dashed #bbb; border-radius: 10px; padding: 2.5rem 1.5rem; background: #f7f7f7;">
+          <p class="is-size-5" style="margin-bottom: 0.5rem; color: #555;">
+            Figure 1 placeholder
+          </p>
+          <p class="content has-text-justified" style="max-width: 40rem; margin: 0 auto; color: #666;">
+            Teaser illustrating the main idea and qualitative examples before and after counterfactual (CF) visual
+            intervention. Replace this block with <code>static/images/teaser.png</code> when ready.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Method Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            We derive spatial importance by locally intervening on visual observations and measuring how action
+            prediction quality changes. These action-grounded importance signals supervise a gaze module that steers
+            the policy’s visual attention toward task-relevant regions—without human masks/boxes or external
+            foundation-model pseudo-labels.
+          </p>
+        </div>
+        <div class="has-text-centered"
+             style="border: 2px dashed #bbb; border-radius: 10px; padding: 2.5rem 1.5rem; background: #f7f7f7; margin-top: 1rem;">
+          <p class="is-size-5" style="margin-bottom: 0.5rem; color: #555;">
+            Figure 2 placeholder — pipeline
+          </p>
+          <p style="color: #666; margin: 0;">
+            Add <code>static/images/pipeline.png</code> here.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: white;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Key Results</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>
+              Counterfactual gaze discovers task-relevant regions without gaze annotations or external grounding models
+              (higher alignment than baseline action attention across Cable, Hose, Straw, and LEGO tasks).
+            </li>
+            <li>
+              Grounding the action expert with learned gaze transfers those regions into action attention used at
+              inference time.
+            </li>
+            <li>
+              On high-precision insertion benchmarks, our method improves success rates over the standard VLA baseline.
+            </li>
+            <li>
+              We further study robustness to visual distractors and iterative counterfactual gaze refinement.
+            </li>
+          </ul>
+        </div>
+        <div class="has-text-centered"
+             style="border: 2px dashed #bbb; border-radius: 10px; padding: 2.5rem 1.5rem; background: #f7f7f7; margin-top: 1rem;">
+          <p class="is-size-5" style="margin-bottom: 0.5rem; color: #555;">
+            Figure 3 placeholder — heatmap comparison
+          </p>
+          <p style="color: #666; margin: 0;">
+            Add qualitative attention / heatmap figures when available.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre style="background:#f5f5f5; padding:1rem; border-radius:8px; overflow:auto;"><code>@inproceedings{anonymous2027look,
+  title     = {Look Where It Matters: Counterfactual Visual Interventions for High-Precision Vision-Language-Action Manipulation},
+  author    = {Anonymous},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2027},
+  note      = {Under double-blind review}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Project page for anonymous submission. Identity-bearing links and author information are withheld during review.
+      </p>
+      <p>
+        Website template adapted from
+        <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
